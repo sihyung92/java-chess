@@ -11,15 +11,4 @@ public class ChessPieceFactory {
     public ChessPiece createChessPiece(Type type, Color color) {
         return new ChessPiece(type, color);
     }
-
-    public ChessPieces createColoredChessPieces(Color color) {
-        List<ChessPiece> coloredChessPieces = new ArrayList<>();
-        return new ChessPieces(
-                Type.aSet()
-                        .stream()
-                        .map(type -> createChessPiece(type, color))
-                        .collect(Collectors.toList()
-                        )
-        );
-    }
 }
