@@ -54,7 +54,7 @@ class ChessPiecesTest {
         );
 
         //when
-        List<ChessPiece> blackChessList = ChessPieces.blackPiecesWithoutPawn().collect(Collectors.toList());
+        List<ChessPiece> blackChessList = ChessPieces.blackPiecesWithoutPawnStream().collect(Collectors.toList());
 
         //then
         assertThat(blackChessList).isEqualTo(expectedPieces);

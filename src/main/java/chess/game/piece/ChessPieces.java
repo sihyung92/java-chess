@@ -28,7 +28,7 @@ public class ChessPieces {
         return whitePieces.subList(0, INDEX_OF_PAWN).stream();
     }
 
-    public static Stream<ChessPiece> blackPiecesWithoutPawn() {
+    public static Stream<ChessPiece> blackPiecesWithoutPawnStream() {
         return blackPieces.subList(0, INDEX_OF_PAWN).stream();
     }
 

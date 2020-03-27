@@ -1,6 +1,5 @@
 package chess.controller;
 
-import chess.game.board.BasicBoard;
 import chess.view.InputView;
 import chess.view.OutputView;
 
