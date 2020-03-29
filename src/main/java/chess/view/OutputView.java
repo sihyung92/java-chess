@@ -2,6 +2,8 @@ package chess.view;
 
 import chess.game.board.Board;
 
+import java.util.List;
+
 public class OutputView {
 
     public static final String START_MESSAGE = "게임을 시작하시려면 start를 입력해주세요";
@@ -10,25 +12,18 @@ public class OutputView {
         System.out.println(START_MESSAGE);
     }
 
-    public static void printBoard(Board Board) {
-        makeBoard(Board);
-        System.out.println(makeBoard(Board));
-    }
+    public static void printBoard(Board board) {
+        List<String> boardData = board.showBoard();
 
-    /*
-            output[i][0]; 첫줄
-            output[0][i]; 첫 새로줄
-            output[i][9]; 끝줄
-            output[9][i]; 끝 세로줄
-     * */
-    private static String[][] makeBoard(Board board) {
-        String[][] output = new String[10][10];
-        for (int i = 1; i < 9; i++) {
-            output[0][i] = String.valueOf(i);
-            output[9][i] = String.valueOf(i);
-            output[i][0] = String.valueOf('A'+i);
-            output[i][9] = String.valueOf('A'+i);
+        for (int i = 0; i < boardData.size(); i++) {
+            System.out.print(boardData.get(i));
+            if ((i + 1) % 8 == 0 && i != 0) {
+                System.out.println(" " + (i + 1) / 8);
+            }
         }
-        return output;
+
+        for (int i = 0; i < 8; i++) {
+            System.out.print((char) ('A' + i));
+        }
     }
 }

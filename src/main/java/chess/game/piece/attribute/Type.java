@@ -1,8 +1,11 @@
 package chess.game.piece.attribute;
 
+import chess.game.rule.MovingRule;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.stream.Stream;
 
 public enum Type {
@@ -19,14 +22,17 @@ public enum Type {
     private static final Type[] typesOrderWithOutPawn =
             new Type[]{ROOK, KNIGHT, BISHOP, KING, QUEEN, BISHOP, KNIGHT, ROOK};
 
-    String initial;
+    String symbol;
 
     static {
         orderedTypes = Arrays.asList(typesOrderWithOutPawn);
     }
 
-    Type(String initial) {
-        this.initial = initial;
+    Type(String symbol) {
+        this.symbol = symbol;
+    }
+    public String symbol() {
+        return symbol;
     }
 
     public static Stream<Type> orderedTypesWithoutPawn() {
