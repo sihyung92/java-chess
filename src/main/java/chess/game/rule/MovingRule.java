@@ -3,12 +3,7 @@ package chess.game.rule;
 import java.util.function.BiPredicate;
 
 public enum MovingRule {
-    // Position 에서 값을 꺼내서 x좌표 차이와 y좌표 차이를 구한다.
-    // 1) 자리에 무엇이 있는 지 보고
-    // 2) 이동할 수 있는지 보고
-    //  2-1) 해당 기물의 type(movingRule 주입)을 보고 movingrule(direction 주입)을 본다 해당 Direction, . x,y에 의거하여
-    // 3) 해당 포지션에 무엇이 있는지 보고
-    // 4) 0보다 크다면, 디렉션에서 방향을 꺼내서
+
     KING((xDistance, yDistance) ->
             (Math.abs(xDistance) == 1 && Math.abs(yDistance) == 1)
                     || (Math.abs(xDistance) == 1 && yDistance == 0)
@@ -36,10 +31,10 @@ public enum MovingRule {
     }
 
     public boolean canMove(int xDistance, int yDistance) {
-        return canMove(xDistance, yDistance) && isNotZero(xDistance, yDistance);
+        return canMove(xDistance, yDistance) && isNotStay(xDistance, yDistance);
     }
 
-    private boolean isNotZero(int xDistance, int yDistance) {
+    private boolean isNotStay(int xDistance, int yDistance) {
         return xDistance != 0 || yDistance != 0;
     }
 

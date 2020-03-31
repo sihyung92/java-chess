@@ -31,4 +31,8 @@ class ConsoleController implements Controller {
         Board board = new Board();
         OutputView.printBoard(board);
     }
+
+    private void inputPosition() {
+        InputView.inputPosition();
+    }
 }

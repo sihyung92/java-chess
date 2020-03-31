@@ -28,7 +28,7 @@ public class ChessPiece {
 
     public boolean canMove(int horizontalDistance, int verticalDistance) {
         return movingRule.canMove(horizontalDistance, verticalDistance);
-}
+    }
 
     public boolean isBlack() {
         return color.equals(Color.BLACK);

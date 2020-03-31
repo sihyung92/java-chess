@@ -52,7 +52,12 @@ public class Board {
 
     public void move(Position source, Position target) {
         ChessPiece chessPiece = board.get(source);
-        board.put(target, chessPiece);
+
+        if (chessPiece.canMove(source.horizontalDistance(target), source.verticalDistance(target))) {
+            board.put(target, chessPiece);
+        }
+
+        throw new UnsupportedOperationException("해당 위치로 이동할 수 없습니다.");
     }
 
     public List<String> showBoard() {
