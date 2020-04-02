@@ -17,7 +17,7 @@ class ConsoleController implements Controller {
 
     private String enterGame() {
         OutputView.startMenu();
-        String answer = InputView.inputStart();
+        String answer = InputView.read();
         if (answer.isEmpty() || Objects.isNull(answer)) {
             throw new IllegalArgumentException("input data is null or empty");
         }
@@ -33,6 +33,6 @@ class ConsoleController implements Controller {
     }
 
     private void inputPosition() {
-        InputView.inputPosition();
+        InputView.read();
     }
 }

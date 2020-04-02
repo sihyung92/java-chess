@@ -6,24 +6,29 @@ import java.util.Objects;
 public class Position implements Comparable<Position> {
     public static final int MAX_BOUND = 8;
     public static final int MIN_BOUND = 1;
-    private final Integer x;
-    private final Integer y;
+    private final Rank rank;
+    private final File file;
 
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Position(String file, int rank) {
+        this.file = File.of(file);
+        this.rank = Rank.of(rank);
     }
 
-    public static Position of(int x, int y) {
-        return new Position(x, y);
+    public Position(int file, int rank) {
+        this.file = File.of(file);
+        this.rank = Rank.of(rank);
+    }
+
+    public static Position of(int file, int rank) {
+        return new Position(file, rank);
     }
 
     public int horizontalDistance(Position target) {
-        return target.x - this.x;
+        return target.file;
     }
 
     public int verticalDistance(Position target) {
-        return target.y - this.y;
+        return this.file.h;
     }
 
     @Override
@@ -31,26 +36,26 @@ public class Position implements Comparable<Position> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Position position = (Position) o;
-        return x == position.x &&
-                y == position.y;
+        return rank == position.rank &&
+                file == position.file;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return Objects.hash(rank, file);
     }
 
     @Override
     public int compareTo(Position o) {
         Position that = o;
-        return (this.y - that.y) * 10 + (this.x - that.x);
+        return (this.file - that.file) * 10 + (this.rank - that.rank);
     }
 
     @Override
     public String toString() {
         return "Position{" +
-                "x=" + x +
-                ", y=" + y +
+                "x=" + rank +
+                ", y=" + file +
                 '}';
     }
 }
