@@ -17,37 +17,10 @@ public class Board {
     private static final int WHITE_PIECES_ROW = 1;
     public static final int WHITE_PAWNS_ROW = 2;
 
-    private final Map<Position, ChessPiece> board = new HashMap<>();
+    private final Map<Position, ChessPiece> board;
 
-    public Board() {
-        ready();
-    }
-
-    public void ready() {
-        cleanUp();
-        fillPieces();
-    }
-
-    private void cleanUp() {
-        for (int i = MIN_BOUND; i <= MAX_BOUND; i++) {
-            for (int j = MIN_BOUND; j <= MAX_BOUND; j++) {
-                board.put(new Position(i, j), null);
-            }
-        }
-    }
-
-    private void fillPieces() {
-        fillPieces(ChessPieces.blackPiecesWithoutPawnStream(), BLACK_PIECES_ROW);
-        fillPieces(ChessPieces.blackPawnsStream(), BLACK_PAWNS_ROW);
-        fillPieces(ChessPieces.whitePiecesWithoutPawnStream(), WHITE_PIECES_ROW);
-        fillPieces(ChessPieces.whitePawnsStream(), WHITE_PAWNS_ROW);
-    }
-
-    private void fillPieces(Stream<ChessPiece> stream, int rowNumber) {
-        AtomicInteger xPosition = new AtomicInteger(MIN_BOUND);
-        stream.forEach(chessPiece -> {
-            board.put(Position.of(xPosition.getAndIncrement(), rowNumber), chessPiece);
-        });
+    Board(Map<Position, ChessPiece> board) {
+        this.board = board;
     }
 
     public void move(Position source, Position target) {

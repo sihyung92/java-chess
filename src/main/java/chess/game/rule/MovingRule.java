@@ -5,18 +5,18 @@ import java.util.function.BiPredicate;
 public enum MovingRule {
 
     KING((xDistance, yDistance) ->
-            (Math.abs(xDistance) == 1 && Math.abs(yDistance) == 1)
-                    || (Math.abs(xDistance) == 1 && yDistance == 0)
-                    || (xDistance == 0 && Math.abs(yDistance) == 1)
+            (xDistance == 1 && yDistance == 1)
+                    || (xDistance == 1 && yDistance == 0)
+                    || (xDistance == 0 && yDistance == 1)
     ),
     QUEEN((xDistance, yDistance) ->
-            (Math.abs(xDistance) == Math.abs(yDistance))
+            xDistance == yDistance
                     || ((xDistance == 0 && yDistance != 0) || (xDistance != 0 && yDistance == 0))
     ),
-    BISHOP((xDistance, yDistance) -> Math.abs(xDistance) == Math.abs(yDistance)),
+    BISHOP((xDistance, yDistance) -> xDistance == yDistance),
     KNIGHT((xDistance, yDistance) ->
-            (Math.abs(xDistance) == 2 && Math.abs(yDistance) == 1)
-                    || (Math.abs(xDistance) == 1 && Math.abs(yDistance) == 2)
+            (xDistance == 2 && yDistance == 1)
+                    || (xDistance == 1 && yDistance == 2)
     ),
     ROOK((xDistance, yDistance) -> (xDistance == 0 && yDistance != 0) || (xDistance != 0 && yDistance == 0)),
     WHITE_PAWN((xDistance, yDistance) -> xDistance == 0 && yDistance == -1),

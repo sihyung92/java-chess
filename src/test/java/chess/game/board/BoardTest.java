@@ -1,5 +1,6 @@
 package chess.game.board;
 
+import chess.view.OutputView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,7 @@ class BoardTest {
 
     @Test
     void showBoard() {
-
+        board.ready();
+        OutputView.printBoard(board);
     }
 }

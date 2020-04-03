@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BasicBoardTest {
     @Test
     void name() {
-        assertThat(new ChessPiece(Type.BISHOP, Color.BLACK).isBlack()).isTrue();
     }
 
 }

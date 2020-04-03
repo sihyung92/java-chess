@@ -34,7 +34,7 @@ public enum File {
                 .orElseThrow(() -> new IllegalArgumentException("해당 문자에 해당하는 file이 없습니다."));
     }
 
-    public int getNumber() {
-        return fileNumber;
+    public int calculateDistance(File target) {
+        return Math.abs(this.fileNumber - target.fileNumber);
     }
 }

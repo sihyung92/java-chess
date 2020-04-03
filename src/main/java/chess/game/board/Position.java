@@ -19,16 +19,19 @@ public class Position implements Comparable<Position> {
         this.rank = Rank.of(rank);
     }
 
+    public Position(String fileRank){
+    }
+
     public static Position of(int file, int rank) {
         return new Position(file, rank);
     }
 
     public int horizontalDistance(Position target) {
-        return target.file;
+        return file.calculateDistance(target.file);
     }
 
     public int verticalDistance(Position target) {
-        return this.file.h;
+        return rank.calculateDistance(target.rank);
     }
 
     @Override
@@ -48,7 +51,7 @@ public class Position implements Comparable<Position> {
     @Override
     public int compareTo(Position o) {
         Position that = o;
-        return (this.file - that.file) * 10 + (this.rank - that.rank);
+        return (file.calculateDistance(that.file)) * 10 + (rank.calculateDistance(that.rank));
     }
 
     @Override
