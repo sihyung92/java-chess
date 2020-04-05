@@ -1,8 +1,14 @@
 package chess.view;
 
 import chess.game.board.Board;
+import chess.game.board.File;
+import chess.game.board.Position;
+import chess.game.board.Rank;
+import chess.game.piece.ChessPiece;
 
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -13,17 +19,17 @@ public class OutputView {
     }
 
     public static void printBoard(Board board) {
-        List<String> boardData = board.showBoard();
-
-        for (int i = 0; i < boardData.size(); i++) {
-            System.out.print(boardData.get(i));
-            if ((i + 1) % 8 == 0 && i != 0) {
-                System.out.println(" " + (i + 1) / 8);
-            }
+        for (Rank rank : Rank.values()){
+            showPieces(board, rank);
+            System.out.println();
         }
+    }
 
-        for (int i = 0; i < 8; i++) {
-            System.out.print((char) ('A' + i));
+    private static void showPieces(Board board,Rank rank){
+        for (File file : File.values()){
+            Position po = new Position(file.getInitial(), rank.getRankNumber());
+
+            System.out.print(board.getBoard().get(po).showSymbol());
         }
     }
 }

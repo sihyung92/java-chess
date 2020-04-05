@@ -1,6 +1,7 @@
 package chess.controller;
 
 import chess.game.board.Board;
+import chess.game.board.BoardFactory;
 import chess.view.InputView;
 import chess.view.OutputView;
 
@@ -11,8 +12,9 @@ class ConsoleController implements Controller {
 
     @Override
     public void run() {
-        enterGame();
-        chessStart();
+        if (enterGame().equals(START)) {
+            chessStart();
+        }
     }
 
     private String enterGame() {
@@ -28,11 +30,8 @@ class ConsoleController implements Controller {
     }
 
     private void chessStart() {
-        Board board = new Board();
+        Board board = BoardFactory.createInitialBoard();
         OutputView.printBoard(board);
     }
 
-    private void inputPosition() {
-        InputView.read();
-    }
 }

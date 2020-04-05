@@ -14,7 +14,8 @@ public enum Type {
     BISHOP("B"),
     KNIGHT("K"),
     ROOK("R"),
-    PAWN("P");
+    PAWN("P"),
+    BLANK(".");
 
     private static List<Type> orderedTypes;
 

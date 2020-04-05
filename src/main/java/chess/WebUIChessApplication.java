@@ -9,5 +9,4 @@ public class WebUIChessApplication {
         Controller controller = controllerFactory.createController(ControllerFactory.CONSOLE);
         controller.run();
     }
-
 }

@@ -3,7 +3,7 @@ package chess.game.board;
 import java.util.Objects;
 
 // TODO: 2020-03-27 : of 메소드 구현방식 수정 필요
-public class Position implements Comparable<Position> {
+public class Position{
     public static final int MAX_BOUND = 8;
     public static final int MIN_BOUND = 1;
     private final Rank rank;
@@ -19,7 +19,11 @@ public class Position implements Comparable<Position> {
         this.rank = Rank.of(rank);
     }
 
-    public Position(String fileRank){
+    public static Position of(String position) {
+        if (position.matches("^[a-zA-Z][0-9]$")) {
+            return new Position(String.valueOf(position.charAt(0)), Integer.parseInt(String.valueOf(position.charAt(1))));
+        }
+        throw new IllegalArgumentException("잘못된 좌표이름 입니다.");
     }
 
     public static Position of(int file, int rank) {
@@ -34,6 +38,10 @@ public class Position implements Comparable<Position> {
         return rank.calculateDistance(target.rank);
     }
 
+    public Rank getRank(){
+        return rank;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,12 +54,6 @@ public class Position implements Comparable<Position> {
     @Override
     public int hashCode() {
         return Objects.hash(rank, file);
-    }
-
-    @Override
-    public int compareTo(Position o) {
-        Position that = o;
-        return (file.calculateDistance(that.file)) * 10 + (rank.calculateDistance(that.rank));
     }
 
     @Override

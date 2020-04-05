@@ -20,6 +20,10 @@ public enum File {
         this.initial = initial;
     }
 
+    public String getInitial() {
+        return initial;
+    }
+
     public static File of(final String file) {
         return Stream.of(values())
                 .filter(y -> y.initial.equalsIgnoreCase(file))

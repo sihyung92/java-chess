@@ -22,7 +22,8 @@ public enum MovingRule {
     WHITE_PAWN((xDistance, yDistance) -> xDistance == 0 && yDistance == -1),
     WHITE_PAWN_FIRST((xDistance, yDistance) -> xDistance == 0 && (yDistance == -1 || yDistance == -2)),
     BLACK_PAWN((xDistance, yDistance) -> xDistance == 0 && yDistance == 1),
-    BLACK_PAWN_FIRST((xDistance, yDistance) -> xDistance == 0 && (yDistance == 1 || yDistance == 2));
+    BLACK_PAWN_FIRST((xDistance, yDistance) -> xDistance == 0 && (yDistance == 1 || yDistance == 2)),
+    BLANK((xDistance, yDistance) -> false);
 
     BiPredicate<Integer, Integer> canMove;
 
