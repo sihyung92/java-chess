@@ -15,6 +15,7 @@ public enum File {
     int fileNumber;
     String initial;
 
+
     File(int fileNumber, String initial) {
         this.fileNumber = fileNumber;
         this.initial = initial;
@@ -38,7 +39,18 @@ public enum File {
                 .orElseThrow(() -> new IllegalArgumentException("해당 문자에 해당하는 file이 없습니다."));
     }
 
+    public File moveBy(final int fileDistance) {
+        return Stream.of(values())
+                .filter(y -> fileNumber + fileDistance == y.fileNumber)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("해당 문자에 해당하는 file이 없습니다."));
+    }
+
+    public int getFileNumber() {
+        return fileNumber;
+    }
+
     public int calculateDistance(File target) {
-        return Math.abs(this.fileNumber - target.fileNumber);
+        return this.fileNumber - target.fileNumber;
     }
 }

@@ -2,10 +2,8 @@ package chess.game.board;
 
 import java.util.Objects;
 
-// TODO: 2020-03-27 : of 메소드 구현방식 수정 필요
-public class Position{
-    public static final int MAX_BOUND = 8;
-    public static final int MIN_BOUND = 1;
+// TODO: 2020-03-27 : 포지션 싱글톤 방식으로 변경 필요
+public class Position {
     private final Rank rank;
     private final File file;
 
@@ -14,9 +12,9 @@ public class Position{
         this.rank = Rank.of(rank);
     }
 
-    public Position(int file, int rank) {
-        this.file = File.of(file);
-        this.rank = Rank.of(rank);
+    public Position(File file, Rank rank) {
+        this.file = file;
+        this.rank = rank;
     }
 
     public static Position of(String position) {
@@ -24,10 +22,6 @@ public class Position{
             return new Position(String.valueOf(position.charAt(0)), Integer.parseInt(String.valueOf(position.charAt(1))));
         }
         throw new IllegalArgumentException("잘못된 좌표이름 입니다.");
-    }
-
-    public static Position of(int file, int rank) {
-        return new Position(file, rank);
     }
 
     public int horizontalDistance(Position target) {
@@ -38,9 +32,14 @@ public class Position{
         return rank.calculateDistance(target.rank);
     }
 
-    public Rank getRank(){
+    public Position move(Direction direction) {
+        return new Position(file.moveBy(direction.fileDistance), rank.moveBy(direction.rankDistance));
+    }
+
+    public Rank getRank() {
         return rank;
     }
+
 
     @Override
     public boolean equals(Object o) {

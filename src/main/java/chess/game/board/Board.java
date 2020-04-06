@@ -1,15 +1,8 @@
 package chess.game.board;
 
 import chess.game.piece.ChessPiece;
-import chess.game.piece.ChessPieces;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static chess.game.board.Position.MAX_BOUND;
-import static chess.game.board.Position.MIN_BOUND;
 
 public class Board {
     private final Map<Position, ChessPiece> board;
@@ -26,6 +19,15 @@ public class Board {
         }
 
         throw new UnsupportedOperationException("해당 위치로 이동할 수 없습니다.");
+    }
+
+    public List<Position> route(Position source, Position target) {
+        List<Position> route = new ArrayList<>();
+        Direction.findDirection(source, target);
+        while (!source.equals(target)) {
+
+        }
+        return route;
     }
 
     public Map<Position, ChessPiece> getBoard() {
