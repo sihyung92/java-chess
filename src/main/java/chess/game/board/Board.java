@@ -12,22 +12,39 @@ public class Board {
     }
 
     public void move(Position source, Position target) {
-        ChessPiece chessPiece = board.get(source);
-
-        if (chessPiece.canMove(source.horizontalDistance(target), source.verticalDistance(target))) {
-            board.put(target, chessPiece);
-        }
-
-        throw new UnsupportedOperationException("해당 위치로 이동할 수 없습니다.");
+        validate(source, target);
+        board.put(target, board.get(source));
     }
 
-    public List<Position> route(Position source, Position target) {
-        List<Position> route = new ArrayList<>();
-        Direction.findDirection(source, target);
-        while (!source.equals(target)) {
+    private void validate(Position source, Position target) {
+        route(source, target);
+        isSameColor(board.get(source), target);
+    }
 
+    private List<Position> route(Position source, Position target) {
+        List<Position> route = new ArrayList<>();
+        Direction direction = Direction.findDirection(source, target);
+        while (!source.equals(target)) {
+            route.add(source.move(direction));
+            isBlank(source);
         }
         return route;
+    }
+
+    private void isSameColor(ChessPiece chessPiece, Position target) {
+        if(board.get(target).hasSameColor(chessPiece)){
+           throw new IllegalArgumentException("해당 위치에 있는 말은 아군 말입니다.");
+        }
+    }
+
+    private void isBlank(Position position) {
+        if(!board.get(position).isBlank()){
+            throw new IllegalArgumentException("가는 길목에 다른 말이 있습니다.");
+        }
+    }
+
+    public ChessPiece of(String expression){
+        return board.get(Position.of(expression));
     }
 
     public Map<Position, ChessPiece> getBoard() {

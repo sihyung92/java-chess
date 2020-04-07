@@ -15,7 +15,6 @@ public enum File {
     int fileNumber;
     String initial;
 
-
     File(int fileNumber, String initial) {
         this.fileNumber = fileNumber;
         this.initial = initial;
@@ -44,10 +43,6 @@ public enum File {
                 .filter(y -> fileNumber + fileDistance == y.fileNumber)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("해당 문자에 해당하는 file이 없습니다."));
-    }
-
-    public int getFileNumber() {
-        return fileNumber;
     }
 
     public int calculateDistance(File target) {

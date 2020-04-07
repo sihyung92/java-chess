@@ -30,10 +30,13 @@ public class ChessPiece {
         return movingRule.canMove(horizontalDistance, verticalDistance);
     }
 
-    public boolean isBlack() {
-        return color.equals(Color.BLACK);
+    public boolean isBlank() {
+        return color == Color.BLANK;
     }
 
+    public boolean hasSameColor(ChessPiece chessPiece) {
+        return this.color == chessPiece.color;
+    }
 
     @Override
     public boolean equals(Object o) {

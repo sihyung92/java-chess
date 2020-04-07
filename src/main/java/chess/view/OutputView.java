@@ -27,8 +27,7 @@ public class OutputView {
 
     private static void showPieces(Board board,Rank rank){
         for (File file : File.values()){
-            Position po = new Position(file.getInitial(), rank.getRankNumber());
-            System.out.print(board.getBoard().get(po).showSymbol());
+            System.out.print(board.of(file.getInitial() + rank.getRankNumber() ).showSymbol());
         }
     }
 }

@@ -12,7 +12,7 @@ public enum Rank {
     SEVEN(7),
     EIGHT(8);
 
-    private final int rankNumber;
+    int rankNumber;
 
     Rank(int rankNumber) {
         this.rankNumber = rankNumber;
@@ -32,13 +32,11 @@ public enum Rank {
                 .orElseThrow(() -> new IllegalArgumentException("해당 숫자에 해당하는 Rank를 찾을 수 없습니다."));
     }
 
-    public int getRankNumber() {
-        return rankNumber;
-    }
-
-
-
     public int calculateDistance(Rank target) {
         return this.rankNumber - target.rankNumber;
+    }
+
+    public int getRankNumber() {
+        return rankNumber;
     }
 }
