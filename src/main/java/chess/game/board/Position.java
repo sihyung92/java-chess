@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Position {
-    private final Rank rank;
     private final File file;
+    private final Rank rank;
     private static final Map<String, Position> CACHE;
 
     static {
@@ -34,7 +34,7 @@ public class Position {
     }
 
     public static Position of(String expression) {
-        return CACHE.get(expression);
+        return CACHE.get(expression.toUpperCase());
     }
 
     public int horizontalDistance(Position target) {

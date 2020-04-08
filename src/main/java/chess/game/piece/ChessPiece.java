@@ -1,5 +1,6 @@
 package chess.game.piece;
 
+import chess.game.board.Position;
 import chess.game.piece.attribute.Color;
 import chess.game.piece.attribute.Type;
 import chess.game.rule.MovingRule;
@@ -26,8 +27,8 @@ public class ChessPiece {
         return symbol;
     }
 
-    public boolean canMove(int horizontalDistance, int verticalDistance) {
-        return movingRule.canMove(horizontalDistance, verticalDistance);
+    public boolean canMove(Position source, Position target) {
+        return movingRule.canMove(source.horizontalDistance(target), source.verticalDistance(target));
     }
 
     public boolean isBlank() {

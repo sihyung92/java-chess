@@ -32,7 +32,7 @@ public enum MovingRule {
     }
 
     public boolean canMove(int xDistance, int yDistance) {
-        return canMove(xDistance, yDistance) && isNotStay(xDistance, yDistance);
+        return canMove.test(xDistance, yDistance) && isNotStay(xDistance, yDistance);
     }
 
     private boolean isNotStay(int xDistance, int yDistance) {

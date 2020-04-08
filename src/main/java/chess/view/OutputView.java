@@ -2,13 +2,7 @@ package chess.view;
 
 import chess.game.board.Board;
 import chess.game.board.File;
-import chess.game.board.Position;
 import chess.game.board.Rank;
-import chess.game.piece.ChessPiece;
-
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -19,15 +13,20 @@ public class OutputView {
     }
 
     public static void printBoard(Board board) {
-        for (Rank rank : Rank.values()){
+        for (Rank rank : Rank.values()) {
             showPieces(board, rank);
             System.out.println();
         }
     }
 
-    private static void showPieces(Board board,Rank rank){
-        for (File file : File.values()){
-            System.out.print(board.of(file.getInitial() + rank.getRankNumber() ).showSymbol());
+    private static void showPieces(Board board, Rank rank) {
+        for (File file : File.values()) {
+            String expression = generateExpression(file, rank);
+            System.out.print(board.of(expression).showSymbol());
         }
+    }
+
+    private static String generateExpression(File file, Rank rank) {
+        return file.getInitial() + rank.getRankNumber();
     }
 }

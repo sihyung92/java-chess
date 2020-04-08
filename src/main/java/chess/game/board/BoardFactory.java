@@ -26,14 +26,14 @@ public class BoardFactory {
     }
 
     private static void fillFirstRank(Map<Position, ChessPiece> boardSource) {
-        boardSource.put(Position.of("a1"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.WHITE));
-        boardSource.put(Position.of("b1"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.WHITE));
-        boardSource.put(Position.of("c1"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.WHITE));
-        boardSource.put(Position.of("d1"), ChessPieceFactory.createChessPiece(Type.KING, Color.WHITE));
-        boardSource.put(Position.of("e1"), ChessPieceFactory.createChessPiece(Type.QUEEN, Color.WHITE));
-        boardSource.put(Position.of("f1"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.WHITE));
-        boardSource.put(Position.of("g1"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.WHITE));
-        boardSource.put(Position.of("h1"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.WHITE));
+        boardSource.put(Position.of("A1"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.WHITE));
+        boardSource.put(Position.of("B1"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.WHITE));
+        boardSource.put(Position.of("C1"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.WHITE));
+        boardSource.put(Position.of("D1"), ChessPieceFactory.createChessPiece(Type.KING, Color.WHITE));
+        boardSource.put(Position.of("E1"), ChessPieceFactory.createChessPiece(Type.QUEEN, Color.WHITE));
+        boardSource.put(Position.of("F1"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.WHITE));
+        boardSource.put(Position.of("G1"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.WHITE));
+        boardSource.put(Position.of("H1"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.WHITE));
     }
 
     private static void fillSecondRank(Map<Position, ChessPiece> boardSource) {
@@ -59,14 +59,14 @@ public class BoardFactory {
     }
 
     private static void fillEighthRank(Map<Position, ChessPiece> boardSource) {
-        boardSource.put(Position.of("a8"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.BLACK));
-        boardSource.put(Position.of("b8"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.BLACK));
-        boardSource.put(Position.of("c8"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.BLACK));
-        boardSource.put(Position.of("d8"), ChessPieceFactory.createChessPiece(Type.KING, Color.BLACK));
-        boardSource.put(Position.of("e8"), ChessPieceFactory.createChessPiece(Type.QUEEN, Color.BLACK));
-        boardSource.put(Position.of("f8"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.BLACK));
-        boardSource.put(Position.of("g8"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.BLACK));
-        boardSource.put(Position.of("h8"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.BLACK));
+        boardSource.put(Position.of("A8"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.BLACK));
+        boardSource.put(Position.of("B8"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.BLACK));
+        boardSource.put(Position.of("C8"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.BLACK));
+        boardSource.put(Position.of("D8"), ChessPieceFactory.createChessPiece(Type.KING, Color.BLACK));
+        boardSource.put(Position.of("E8"), ChessPieceFactory.createChessPiece(Type.QUEEN, Color.BLACK));
+        boardSource.put(Position.of("F8"), ChessPieceFactory.createChessPiece(Type.BISHOP, Color.BLACK));
+        boardSource.put(Position.of("G8"), ChessPieceFactory.createChessPiece(Type.KNIGHT, Color.BLACK));
+        boardSource.put(Position.of("H8"), ChessPieceFactory.createChessPiece(Type.ROOK, Color.BLACK));
     }
 
 }

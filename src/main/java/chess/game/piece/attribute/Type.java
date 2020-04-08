@@ -19,32 +19,14 @@ public enum Type {
 
     private static List<Type> orderedTypes;
 
-    private static final int NUMBER_OF_PAWN = 8;
-    private static final Type[] typesOrderWithOutPawn =
-            new Type[]{ROOK, KNIGHT, BISHOP, KING, QUEEN, BISHOP, KNIGHT, ROOK};
-
     String symbol;
-
-    static {
-        orderedTypes = Arrays.asList(typesOrderWithOutPawn);
-    }
 
     Type(String symbol) {
         this.symbol = symbol;
     }
+
     public String symbol() {
         return symbol;
     }
 
-    public static Stream<Type> orderedTypesWithoutPawn() {
-        return orderedTypes.stream();
-    }
-
-    public static Stream<Type> pawns() {
-        List<Type> pawns = new ArrayList<>(NUMBER_OF_PAWN);
-        for (int i = 0; i < NUMBER_OF_PAWN; i++) {
-            pawns.add(PAWN);
-        }
-        return pawns.stream();
-    }
 }
